@@ -5,7 +5,7 @@ var Word = function() {
 		console.log('help')
 	}
 	this.randomizer = function() {
-		var computerChoice = ['red', 'orange', 'yellow', 'green', 'cyan', 'indigo', 'violet', 'purple', 'magneta', 'pink', 'brown', 'gray', 'black', 'blue']
+		var computerChoice = ['red', 'orange', 'cyan', 'violet', 'pink', 'brown', 'gray', 'black', 'blue']
 		var computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
 		this.word = computerGuess
 		return this.word
@@ -48,15 +48,10 @@ var Letters = function(canvas, word, letterGuess) {
 				console.log(`\n${canvas.join(' ')}\n`)
 			}
 		}
-			if (rightAnswers.length === brokenletters.length) {
-				run.exit();
-				refresh();
-			} 
-			if (guesses > 10) {
+			if (rightAnswers.length === brokenletters.length || guesses > 10) {
 				run.gameover();
 				refresh();
-			}
-			else {
+			} else {
 				run.reload();
 			}
 

@@ -9,7 +9,7 @@ var word = new Constructors.word()
 					type: "list",
 					message: "What do you want to do?",
 					name: "choices",
-					choices: ["play hangman", "roll the dice", "exit"]
+					choices: ["play hangman", "exit"]
 			}).then(function(res) {
 					switch(res.choices) {
 						case "play hangman":
@@ -17,8 +17,6 @@ var word = new Constructors.word()
 							word.blanks(word.word);
 							var run = new HangmanPrompt(word.word, word.canvas);
 							run.inquisition();
-							break;
-						case "roll the dice":
 							break;
 						case "exit":
 							console.log(`\nbye!\n`)
@@ -46,12 +44,8 @@ var word = new Constructors.word()
 		this.reload = function() {
 			this.inquisition()
 		};
-		this.exit = function() {
-			console.log(`\nright!!\n`)
-			prompt();
-		};
 		this.gameover = function() {
-			console.log(`\n\nyou ran out of guesses!\n`)
+			console.log(`\n\ngame over!\n`)
 			prompt();
 		}
 	}
